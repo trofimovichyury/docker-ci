@@ -15,6 +15,7 @@ deploy:
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   template: iac/ec2.yml
   stack_name: ec2-instance
+  region: eu-west-1
   edge: true # opt in to dpl v2
   on:
     branch: master
