@@ -8,3 +8,13 @@ before_install:
 
 script:
   - docker run -e CI=true yurytrafimovich/docker-ci npm run test
+
+deploy:
+  provider: cloudformation
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  template: iac/ec2.yml
+  stack_name: ec2-instance
+  edge: true # opt in to dpl v2
+  on:
+    branch: master
